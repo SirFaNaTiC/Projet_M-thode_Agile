@@ -8,6 +8,9 @@
 <!-- Container pour les événements et les boutons d'action -->
 <div class="event-container">
     <div class="boutons">
-        <a href="formulaireConnexion.php"><button class="login-button">Connexion</button></a>
+        <a href=".\index.php"><button class="button">Accueil</button></a>
+    </div>
+    <div class="boutons">
+        <a href=".\includes\formulaireConnexion.php"><button class="login-button">Connexion</button></a>
     </div>
 </div>
