@@ -2,8 +2,14 @@
 <html lang="fr">
 
 <head>
-    <?php include 'includes/head.php'?>
+    <?php include 'head.php'?>
 </head>
+
+<header>
+    <div class="boutons">
+        <a href="\Projet_M-thode_Agile\index.php"><button class="button">Accueil</button></a>
+    </div>
+</header>
 
 <body>
 
