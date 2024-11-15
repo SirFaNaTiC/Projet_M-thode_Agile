@@ -1,6 +1,9 @@
 CREATE DATABASE GestionStockDB;
 USE GestionStockDB;
 
+DROP TABLE IF EXISTS Product;
+DROP TABLE IF EXISTS User;
+
 -- Table User
 CREATE TABLE User (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -11,22 +14,16 @@ CREATE TABLE User (
     password VARCHAR(50)
 );
 
--- Table Categorie
-CREATE TABLE Categorie (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50),
-    description VARCHAR(255)
-);
-
 -- Table Product
 CREATE TABLE Product (
     id INT PRIMARY KEY AUTO_INCREMENT,
+    uuid VARCHAR(50),
     name VARCHAR(50),
-    statut ENUM('available', 'unavailable'),
-    price DOUBLE,
-    dateExpiration DATE,
-    categorie_id INT,
-    FOREIGN KEY (categorie_id) REFERENCES Categorie(id)
+    quantity INT,
+    audit VARCHAR(50),
+    dateCreation DATE,
+    dateUpdate DATE,
+    categorie ENUM('Electronics', 'Clothing', 'Books', 'Furniture'),    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES User(id)
 );
-
 
