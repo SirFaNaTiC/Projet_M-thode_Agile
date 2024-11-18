@@ -7,10 +7,9 @@ global $db;
 
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
+    <!-- <head> -->
         <?php include 'includes/head.php'?>
-    </head>
-
+    <!-- </head> -->
     <body>
         <!-- En Tête -->
         <header class="header">

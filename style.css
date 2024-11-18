@@ -1,3 +1,26 @@
-header {
-    
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #808080;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th {
+    background: #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #1909f1;
+}
+
+tr {
+    background: #ddd;
 }
