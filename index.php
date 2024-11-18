@@ -44,12 +44,16 @@ global $db;
         </div>
         <form method="get" action="index.php">
             <label for="">categorie</label>
-            <select name="categorie" id="">
-                <option value="pc">pc</option>
-                <option value="printer">printer</option>
-                <option value="telephone">telephone</option>
-                <option value="mobileAccessory">mobileAccessory</option>
+            <?php
+            $selectedCategory = isset($_GET["categorie"]) ? $_GET["categorie"] : '';
+            ?>
+            <select name="categorie" id="categorie">
+                <option value="PC" <?= ($selectedCategory === 'PC') ? 'selected' : '' ?>>PC</option>
+                <option value="Imprimante" <?= ($selectedCategory === 'Imprimante') ? 'selected' : '' ?>>Imprimante</option>
+                <option value="Téléphone" <?= ($selectedCategory === 'Téléphone') ? 'selected' : '' ?>>Téléphone</option>
+                <option value="Accessoire Mobile" <?= ($selectedCategory === 'Accessoire Mobile') ? 'selected' : '' ?>>Accessoire Mobile</option>
             </select>
+
             <button type="submit">filtrer</button>
         </form>
 
