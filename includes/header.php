@@ -10,7 +10,7 @@
     <div class="boutons">
         <a href=".\index.php"><button class="button">Accueil</button></a>
     </div>
-    <div class="boutons">
+    <!-- <div class="boutons">
         <a href=".\includes\formulaireConnexion.php"><button class="login-button">Connexion</button></a>
-    </div>
+    </div> -->
 </div>

@@ -64,7 +64,7 @@ global $db;
                     // Préparation et exécution de la requête d'insertion dans la table 'forum'
                     $c = $db->prepare('INSERT INTO product(uuid, `name`, quantity, dateCreation, categorie, user_id) VALUES(?, ?, ?, ?, ?, ?)');
                     $c->execute([$uuid, $name, $quantite, $date_creation, $categorie, 1 ]);
-
+                    header('Location: index.php');
                     exit();
                 }
             ?>

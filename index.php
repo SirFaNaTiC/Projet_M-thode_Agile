@@ -41,7 +41,7 @@ global $db;
                         <th>Date d'Ajout</th>
                         <th>Dernière Modification</th>
                         <th>Statut</th>
-                        <th>Modifier</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,6 +49,9 @@ global $db;
                         // Affichage des informations des clubs dans un tableau
                         foreach($req_prod as $rp){
                     ?>
+
+
+                            
                         <tr>
                             <td><?= $rp['id']?></td>
                             <td><?= $rp['name']?></td>
@@ -57,7 +60,7 @@ global $db;
                             <td><?= $rp['dateCreation']?></td>
                             <td><?= $rp['dateUpdate']?></td>
                             <td><?= $rp['audit']?></td>
-                            <td><button>Modifier</button></td>
+                            <td><a href="update_product?id=<?=$rp['id']?>.php"><button>Modifier</button></a></td>
                         </tr>
                     <?php
                         }
@@ -66,8 +69,6 @@ global $db;
             </table>
         </div>
         </main>
-
-
 
         <!-- Footer -->
         <?php include 'includes/footer.php'?>

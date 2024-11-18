@@ -20,7 +20,7 @@ CREATE TABLE Product (
     audit VARCHAR(50),
     dateCreation DATE,
     dateUpdate DATE,
-    categorie ENUM('telephone', 'pc', 'printer', 'mobileAccessory'), user_id INT,
+    categorie ENUM('Téléphone', 'PC', 'Imprimante', 'Accessoire Mobile'), user_id INT,
     FOREIGN KEY (user_id) REFERENCES User(id)
 );
 
