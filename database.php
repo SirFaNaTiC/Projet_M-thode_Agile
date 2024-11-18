@@ -3,7 +3,7 @@
     define('HOST', 'localhost');
     define('DB_NAME', 'gestionstockdb');
     define('USER', 'root');
-    define('PASS', 'pilou2003');
+    define('PASS', '');
 
     try{
         $db = new PDO("mysql:host=" . HOST . ";dbname=" . DB_NAME, USER, PASS);
