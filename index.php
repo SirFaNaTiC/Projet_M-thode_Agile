@@ -21,13 +21,37 @@ global $db;
         <main>
         <?php
             //Récupération des informations sur les produits (mettre la requête SQL lorsque la BDD sera réccupérée)
-            $req0 = $db->prepare('SELECT * FROM product');
-            $req0->execute();
-            $req_prod = $req0->fetchAll();
+            
+            if (isset($_GET["categorie"]) && !empty($_GET["categorie"])) {
+                $categorie = htmlspecialchars($_GET["categorie"]); // Sécuriser l'entrée utilisateur
+                $req0 = $db->prepare('SELECT * FROM product WHERE categorie = :categorie');
+                $req0->bindParam(':categorie', $categorie, PDO::PARAM_STR); // Liaison du paramètre
+            } else {
+                $req0 = $db->prepare('SELECT * FROM product');
+            }
+
+            try {
+                $req0->execute();
+                $req_prod = $req0->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo "Erreur : " . $e->getMessage(); // Gestion d'erreur
+                $req_prod = [];
+            }
+
         ?>
         <div class="boutons">
             <a href="add_product.php"><button class="button">Ajouter un Produit</button></a>
         </div>
+        <form method="get" action="index.php">
+            <label for="">categorie</label>
+            <select name="categorie" id="">
+                <option value="pc">pc</option>
+                <option value="printer">printer</option>
+                <option value="telephone">telephone</option>
+                <option value="mobileAccessory">mobileAccessory</option>
+            </select>
+            <button type="submit">filtrer</button>
+        </form>
 
         <div class="liste_produits">
             <h2>Produits</h2>
