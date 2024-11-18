@@ -38,8 +38,6 @@ global $db;
                 $req_prod = [];
             }
 
-            $req0->execute();
-            $req_prod = $req0->fetchAll();
         ?>
         <div class="boutons">
             <a href="add_product.php"><button class="button">Ajouter un Produit</button></a>
