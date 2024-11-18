@@ -8,10 +8,7 @@ DROP TABLE IF EXISTS User;
 CREATE TABLE User (
     id INT PRIMARY KEY AUTO_INCREMENT,
     lastname VARCHAR(50),
-    firstname VARCHAR(50),
-    role ENUM('admin', 'customer', 'vendor'),
-    age INT,
-    password VARCHAR(50)
+    firstname VARCHAR(50)
 );
 
 -- Table Product
@@ -27,3 +24,6 @@ CREATE TABLE Product (
     FOREIGN KEY (user_id) REFERENCES User(id)
 );
 
+
+-- Ajout User
+INSERT INTO User (lastname, firstname) VALUES ('GOETINCK', 'Alexandre'), ('BARTHELEMY', 'Nathan'), ('LITOU', 'Alice'), ('BENLAMOUI', 'Ismael'), ('ZOHOUNGBOGBO', 'Anlyou'), ('BAGA', 'Assami');
