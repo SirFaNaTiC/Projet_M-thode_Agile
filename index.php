@@ -65,9 +65,6 @@ global $db;
                 </tbody>
             </table>
         </div>
-            <div class="liste_produit">
-                <h2> Produits : </h2>
-            </div>
         </main>
 
 
