@@ -1,3 +1,12 @@
+<?php
+
+// Inclusion du fichier contenant les dépendances et configurations nécessaires
+require_once("includes/include.php");
+// Accès à la connexion à la base de données globalement
+global $db;
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -12,37 +21,57 @@
 
         <!-- Partie Centrale -->
         <main>
-            <div class="form-container">
-                <h2>Ajouter un Produit</h2>
 
-                <!-- Formulaire de connexion -->
-                <form method="post">
+        <div class="form-container">
+            <h2>Ajouter un produit</h2>
+            
+            <form method="post">
+                <label for="Nom_Produit">Nom Produit :</label>
+                <!-- Champ de saisie de l'adresse e-mail -->
+                <input type="text" id="name" name="name" placeholder="Nom du produit" required>
 
-                    <label for="Nom_Produit">Nom Produit :</label>
-                    <!-- Champ de saisie de l'adresse e-mail -->
-                    <input type="Nom_produit" id="id_produit" name="nom_produit" required>
+                <label for="Quantité produit">Quantité :</label>
+                <!-- Champ de saisie du mot de passe -->
+                <input type="text" name="quantite" placeholder="Quantité du produit" required>
 
-                    <label for="Quantité produit">Quantité :</label>
-                    <!-- Champ de saisie du mot de passe -->
-                    <input type="quantite" id="quantite" name="quantite" required>
+                <label for="Catégorie">Catégorie :</label>
+                <!-- Champ de saisie du mot de passe -->
+                <select name="categorie">
+                    <option value=1>Téléphone</option>
+                    <option value=2>PC</option>
+                    <option value=3>Imprimante</option>
+                    <option value=4>Accessoire Mobile</option>
+                    <!--Fetch-->
+                </select>
 
-                    <label for="Catégorie">Catégorie :</label>
-                    <!-- Champ de saisie du mot de passe -->
-                    <select name="categorie" id="id_categorie">
-                        <option value="">--Selectionner une Catégorie--</option>
-                        <!--Fetch-->
-                    </select>
+                <!-- Bouton de soumission du formulaire -->
+                <button type="submit" id="formsend" name="formsend">Valider</button>
 
-                    <label for="Date">Date :</label>
-                    <!-- Champ de saisie du mot de passe -->
-                    <input type="date" id="id_date" name="quantite" required>
+            </form>
+            <?php
+                // Vérification si le formulaire a été soumis
+                if(isset($_POST['formsend'])){
+                    // Extraction des données du formulaire
+                    extract($_POST);
 
-                    <!-- Bouton de soumission du formulaire -->
-                    <button type="submit" id="formsend" name="formsend">Valider</button>
+                    // Récupération de la date de création
+                    $date_creation = date('Y-m-d H:i:s');
+                    $uuid = '1'.date('dmY');
 
-                </form>
-            </div>
-        </main>
+                    include 'database.php';
+                    global $db;
+
+                    // Préparation et exécution de la requête d'insertion dans la table 'forum'
+                    $c = $db->prepare('INSERT INTO product(uuid, `name`, quantity, dateCreation, categorie, user_id) VALUES(?, ?, ?, ?, ?, ?)');
+                    $c->execute([$uuid, $name, $quantite, $date_creation, $categorie, 1 ]);
+
+                    exit();
+                }
+            ?>
+
+        </div>
+
+    </main>
 
         <!-- Footer -->
         <?php include 'includes/footer.php'?>
