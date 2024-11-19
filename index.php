@@ -24,10 +24,14 @@ global $db;
             $req0 = $db->prepare('SELECT * FROM product');
             $req0->execute();
             $req_prod = $req0->fetchAll();
+            $req1 = $db->prepare('SELECT * FROM user');
+            $req1->execute();
+            $req_user = $req1->fetchAll();
         ?>
+        
         <div class="boutons">
             <a href="add_product.php"><button class="button">Ajouter un Produit</button></a>
-        </div>
+    </div>
 
         <div class="liste_produits">
             <h2>Produits</h2>
