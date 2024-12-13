@@ -12,7 +12,7 @@ try {
 
     echo "Connexion réussie à la base de données."; 
 } catch (PDOException $e) {
-    echo "Erreur de connexion : " . $e->getMessage();
+    echo "Erreur de punnexion : " . $e->getMessage();
     exit();
 }
 
